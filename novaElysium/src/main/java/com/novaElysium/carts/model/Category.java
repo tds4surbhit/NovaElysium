@@ -10,7 +10,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Category {
@@ -19,7 +18,13 @@ public class Category {
     private Long id;
     private String name;
 
+    public Category(String name)  {
+        this.name = name;
+//        this.products = products;
+    }
+
     @OneToMany(mappedBy = "category")
     private List<Product> products;
+
 
 }
