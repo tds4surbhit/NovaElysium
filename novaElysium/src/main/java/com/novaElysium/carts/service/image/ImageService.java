@@ -1,14 +1,25 @@
 package com.novaElysium.carts.service.image;
 
+import com.novaElysium.carts.service.product.IProductService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-public class ImageService extends  IImageService{
+
+@Service
+@RequiredArgsConstructor
+public class ImageService implements IImageService {
+
+    private final ImageRepository imageRepository;
+    private final IProductService  productService;
+
     @Override
     public Image getImageById(Long id) {
-        return null;
+        return imageRepository.findById(id).orElseThrow(() -> )
     }
 
     @Override
+
     public void deleteImageById(Long id) {
 
     }
